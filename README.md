@@ -15,40 +15,30 @@
 | birthday              | date    | null: false |
 
 ### Association
-has_many :items
-has_one :address
-has_one :credit
+- has_many :items
+- has_one :address
+- has_one :credit
+
 
 ## items テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
-| item_img         | references |                                |
+| item_img         | string     |                                |
 | name             | string     | null: false                    |
 | introduction     | text       | null: false                    |
-| genre            | string     | null: false, foreign_key: true |
+| genre            | references | null: false, foreign_key: true |
 | item_condition   | references | null: false, foreign_key: true |
-| postage_payer    | string     | null: false, foreign_key: true |
-| prefecture       | string     | null: false, foreign_key: true |
-| preparation_day  | integer    | null: false, foreign_key: true |
+| postage_payer    | references | null: false, foreign_key: true |
+| prefecture       | references | null: false, foreign_key: true |
+| preparation_day  | references | null: false, foreign_key: true |
 | price            | integer    | null: false, foreign_key: true |
 | user_id          | references | null: false, foreign_key: true | 
 
 ### Association
-has_one :address
-belongs_to :users
+- has_one :address
+- belongs_to :users
 
-
-<!-- ## credit テーブル
-
-| Column         | Type       | Options     |
-| -------------- | ---------- | ----------- |
-| card_number    | integer    | null: false |
-| deadline       | integer    | null: false |
-| cvc            | integer    | null: false |
-
-### Association
-belongs_to :users -->
 
 ## address テーブル
 
@@ -63,5 +53,17 @@ belongs_to :users -->
 | item_id        | integer | null: false, foreign_key: true |
 
 ### Association
-belongs_to :users
-belongs_to :tiems
+- belongs_to :users
+- belongs_to :tiems
+
+
+## favorites テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user_id | references | null: false, foreign_key: true |
+| item_id | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :users
+- belongs_to :items

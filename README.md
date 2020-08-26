@@ -15,8 +15,8 @@
 | birthday              | date    | null: false |
 
 ### Association
+- has_many :favorite
 - has_many :items
-- has_one :address
 
 
 ## items テーブル
@@ -26,17 +26,17 @@
 | item_img         | string     |                                |
 | name             | string     | null: false                    |
 | introduction     | text       | null: false                    |
-| genre            | references | null: false, foreign_key: true |
-| item_condition   | references | null: false, foreign_key: true |
-| postage_payer    | references | null: false, foreign_key: true |
-| prefecture       | references | null: false, foreign_key: true |
-| preparation_day  | references | null: false, foreign_key: true |
+| genre            | integer    | null: false, foreign_key: true |
+| item_condition   | integer    | null: false, foreign_key: true |
+| postage_payer    | integer    | null: false, foreign_key: true |
+| prefecture       | integer    | null: false, foreign_key: true |
+| preparation_day  | integer    | null: false, foreign_key: true |
 | price            | integer    | null: false, foreign_key: true |
-| user_id          | references | null: false, foreign_key: true | 
+| user             | references | null: false, foreign_key: true | 
 
 ### Association
-- has_one :address
-- belongs_to :users
+- has_one :favorite
+- belongs_to :user
 
 
 ## address テーブル
@@ -52,17 +52,18 @@
 | item_id        | integer | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :users
-- belongs_to :tiems
+- belongs_to :user
+- belongs_to :tiem
 
 
 ## favorites テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
+- belongs_to :address

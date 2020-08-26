@@ -17,7 +17,6 @@
 ### Association
 - has_many :items
 - has_one :address
-- has_one :credit
 
 
 ## items テーブル

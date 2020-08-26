@@ -52,8 +52,7 @@
 | item_id        | integer | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
-- belongs_to :tiem
+- belongs_to :favorites
 
 
 ## favorites テーブル
@@ -64,6 +63,4 @@
 | item    | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :user
-- belongs_to :item
-- belongs_to :address
+- has_one :address

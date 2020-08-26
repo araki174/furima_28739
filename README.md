@@ -32,7 +32,7 @@
 | prefecture       | integer    | null: false, foreign_key: true |
 | preparation_day  | integer    | null: false, foreign_key: true |
 | price            | integer    | null: false, foreign_key: true |
-| user             | references | null: false, foreign_key: true | 
+| user_id          | integer    | null: false, foreign_key: true | 
 
 ### Association
 - has_one :favorite
@@ -43,16 +43,16 @@
 
 | Column         | Type    | Options                        |
 | -------------- | ------- | ------------------------------ |
-| postal_cade    | integer | null: false                    |
-| prefecture     | string  | null: false                    |
+| postal_cade    | string  | null: false                    |
+| prefecture     | integer | null: false                    |
 | city           | string  | null: false                    |
 | house_number   | integer | null: false                    |
 | building_name  | string  |                                |
 | phone_number   | integer | null: false                    |
-| item_id        | integer | null: false, foreign_key: true |
+| favorite_id    | integer | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :favorites
+- belongs_to :favorite
 
 
 ## favorites テーブル
@@ -64,3 +64,5 @@
 
 ### Association
 - has_one :address
+- belongs_to :user
+- belongs_to :item

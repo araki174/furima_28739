@@ -123,4 +123,25 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe 'ログイン' do
+    context 'ログインできるとき' do
+      it 'emailとpasswordが存在するとき' do
+        expect(@user).to be_valid
+      end
+    end
+
+    context 'ログインできないとき' do
+      it 'emailが空のときログインできない' do
+        @user.email = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Email can't be blank")
+      end
+      it 'passwordが空のときログインできない' do
+        @user.password = ''
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password can't be blank")
+      end
+    end
+  end
 end

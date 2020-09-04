@@ -17,8 +17,9 @@ class ItemsController < ApplicationController
   def destroy
   end
 
-  prinate
+  private
 
   def items_params
     params_require(:item).permit(:content, :image).merge(user_id: current_user.id)
+  end
 end

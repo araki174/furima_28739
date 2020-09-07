@@ -16,5 +16,6 @@ class User < ApplicationRecord
     validates :birthday
   end
 
+  has_one :address
   # validates :email, uniqueness:true
 end

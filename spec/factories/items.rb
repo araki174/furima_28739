@@ -1,13 +1,16 @@
 FactoryBot.define do
+
   factory :item do
-    item_img
-    name      { 'jupiter' }
-    introduction  { '木星' }
-    genre_id
-    itemcondition_id
-    postagepayer_id
-    prefecture_id
-    preparationday_id
-    price
+    name                { '木星' }
+    introduction        { '木星だよ' }
+    genre_id            { '1' }
+    itemcondition_id    { '1' }
+    postagepayer_id     { '1' }
+    prefecture_id       { '1' }
+    preparationday_id   { '1' }
+    price               { '1000' }
+    
+    association :user
   end
+
 end

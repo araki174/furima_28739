@@ -16,18 +16,12 @@ class ItemsController < ApplicationController
       render "new"
     end
 
-    # @name = Name.create params.require(:name).permit(content, :item)
-    # redirect_to @name
-
   end
 
   def edit
   end
 
   def update
-    # @name = Name.find(params[:id])
-    # @name.update params.require(:name).permit(:content, :image)
-    # redirect_to @name
   end
 
   def destroy

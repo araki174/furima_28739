@@ -27,10 +27,10 @@
 | name             | string     | null: false                    |
 | introduction     | text       | null: false                    |
 | genre            | integer    | null: false, foreign_key: true |
-| item_condition   | integer    | null: false, foreign_key: true |
-| postage_payer    | integer    | null: false, foreign_key: true |
+| itemcondition    | integer    | null: false, foreign_key: true |
+| postagepayer     | integer    | null: false, foreign_key: true |
 | prefecture       | integer    | null: false, foreign_key: true |
-| preparation_day  | integer    | null: false, foreign_key: true |
+| preparationday   | integer    | null: false, foreign_key: true |
 | price            | integer    | null: false, foreign_key: true |
 | user_id          | integer    | null: false, foreign_key: true | 
 

@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 2020_09_04_025353) do
     t.string "name"
     t.text "introduction"
     t.integer "genre_id"
-    t.integer "itemcondition_id"
-    t.integer "postagepayer_id"
+    t.integer "item_condition_id"
+    t.integer "postage_payer_id"
     t.integer "prefecture_id"
-    t.integer "preparationday_id"
+    t.integer "preparation_day_id"
     t.integer "price"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false

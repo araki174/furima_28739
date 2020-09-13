@@ -44,10 +44,15 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Genre can't be blank")
       end
-      it 'postagepayerが未選択だと出品できない' do
-        @item.postagepayer_id = ''
+      it 'item_condition_idが未選択だと出品できない' do
+        @item.item_condition_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Postagepayer can't be blank")
+        expect(@item.errors.full_messages).to include("Item condition can't be blank")
+      end
+      it 'postagepayerが未選択だと出品できない' do
+        @item.postage_payer_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Postage payer can't be blank")
       end
       it 'prefectureが未選択だと出品できない' do
         @item.prefecture_id = ''
@@ -55,9 +60,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'preparationdayが未選択だと出品できない' do
-        @item.preparationday_id = ''
+        @item.preparation_day_id = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Preparationday can't be blank")
+        expect(@item.errors.full_messages).to include("Preparation day can't be blank")
       end
       it 'priceが未記入だと出品できない' do
         @item.price = ''

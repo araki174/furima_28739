@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
-    @item.image = fixture_file_upload("/files/test_image.jpg")
-
+    @item.image = fixture_file_upload('/files/test_image.jpg')
   end
 
   describe '新規商品出品' do
@@ -28,7 +27,7 @@ RSpec.describe Item, type: :model do
       it 'nameが40文字以上だと出品できない' do
         @item.name = Faker::Name.initials(number: 50)
         @item.valid?
-        expect(@item.errors.full_messages).to include("Name is too long (maximum is 40 characters)")
+        expect(@item.errors.full_messages).to include('Name is too long (maximum is 40 characters)')
       end
       it 'introductionが空だと出品できない' do
         @item.introduction = ''
@@ -36,9 +35,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Introduction can't be blank")
       end
       it 'introductionが1000文字以上だと出品できない' do
-        @item.introduction = ("aa" * 10000)
+        @item.introduction = ('aa' * 10_000)
         @item.valid?
-        expect(@item.errors.full_messages).to include("Introduction is too long (maximum is 1000 characters)")
+        expect(@item.errors.full_messages).to include('Introduction is too long (maximum is 1000 characters)')
       end
       it 'genreが未選択だと出品できない' do
         @item.genre_id = ''
@@ -68,17 +67,17 @@ RSpec.describe Item, type: :model do
       it 'priceが数字以外だと出品できない' do
         @item.price = 'aaaaaa'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
       it 'priceが300円未満だと出品できない' do
         @item.price = '200'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than 300")
+        expect(@item.errors.full_messages).to include('Price must be greater than 300')
       end
       it 'priceが10000000円以上だと出品できない' do
         @item.price = '10000001'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be less than 10000000")
+        expect(@item.errors.full_messages).to include('Price must be less than 10000000')
       end
     end
   end

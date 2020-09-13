@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :item do
     name                { '木星' }
     introduction        { '木星だよ' }
@@ -9,8 +8,7 @@ FactoryBot.define do
     prefecture_id       { '1' }
     preparationday_id   { '1' }
     price               { '1000' }
-    
+
     association :user
   end
-
 end

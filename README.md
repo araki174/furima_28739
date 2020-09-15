@@ -55,7 +55,7 @@
 - belongs_to :favorite
 
 
-## favorites テーブル
+## orders テーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |

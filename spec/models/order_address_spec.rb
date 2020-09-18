@@ -25,13 +25,12 @@ RSpec.describe OrderAddress, type: :model do
       @order_address.postal_code = ''
       @order_address.valid?
       expect(@order_address.errors.full_messages).to include("Postal code can't be blank")
-
     end
 
     it 'postal_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
       @order_address.postal_code = '1234567'
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+      expect(@order_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
     end
 
     it 'prefectureが未選択だと出品できない' do
@@ -43,7 +42,7 @@ RSpec.describe OrderAddress, type: :model do
     it 'cityが空だと保存できない' do
       @order_address.city = ''
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("City can't be blank", "City is invalid")
+      expect(@order_address.errors.full_messages).to include("City can't be blank", 'City is invalid')
     end
 
     it 'house_numberが空だと保存できない' do
@@ -61,7 +60,7 @@ RSpec.describe OrderAddress, type: :model do
     it 'phone_numberはハイフンが無く11文字以内でないと保存できない' do
       @order_address.phone_number = '090-1234-5678'
       @order_address.valid?
-      expect(@order_address.errors.full_messages).to include("Phone number is invalid")
+      expect(@order_address.errors.full_messages).to include('Phone number is invalid')
     end
 
     it 'user_idが空だと保存できない' do
@@ -76,5 +75,4 @@ RSpec.describe OrderAddress, type: :model do
       expect(@order_address.errors.full_messages).to include("Item can't be blank")
     end
   end
-
 end

@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :move_to_index
   before_action :move_to_session
   def index
-   @order = OrderAddress.new
+    @order = OrderAddress.new
   end
 
   def new
@@ -14,12 +14,12 @@ class OrdersController < ApplicationController
     if @order.valid?
       pay_item
       @order.save
-      return redirect_to root_path
+      redirect_to root_path
     else
       render :index
     end
-  end 
-  
+  end
+
   private
 
   def order_params
@@ -27,11 +27,11 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     Payjp::Charge.create(
       amount: @item.price,           # 商品の値段
       card: order_params[:token],    # カードトークン
-      currency:'jpy'                 # 通貨の種類(日本円)
+      currency: 'jpy'                 # 通貨の種類(日本円)
     )
   end
 
@@ -40,15 +40,10 @@ class OrdersController < ApplicationController
   end
 
   def move_to_session
-    unless user_signed_in? && current_user.id != @item.user_id
-      redirect_to user_session_path
-    end
+    redirect_to user_session_path unless user_signed_in? && current_user.id != @item.user_id
   end
 
   def move_to_index
-    unless @item.order == nil
-      redirect_to root_path
-    end
+    redirect_to root_path unless @item.order.nil?
   end
-
 end

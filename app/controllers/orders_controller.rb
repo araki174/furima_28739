@@ -42,6 +42,9 @@ class OrdersController < ApplicationController
     unless user_signed_in? && current_user.id != @item.user_id
       redirect_to controller: :items, action: :index
     end
+    unless @item.order == nil
+      redirect_to controller: :items, action: :index
+    end
   end
 
 end

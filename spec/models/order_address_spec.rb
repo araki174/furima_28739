@@ -7,7 +7,6 @@ RSpec.describe OrderAddress, type: :model do
     end
 
     it 'すべての値が正しく入力されていれば保存できること' do
-      binding.pry
       expect(@order_address).to be_valid
     end
 

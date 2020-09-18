@@ -15,7 +15,7 @@
 | birthday              | date    | null: false |
 
 ### Association
-- has_many :favorite
+- has_many :orders
 - has_many :items
 
 
@@ -35,7 +35,8 @@
 | user_id          | integer    | null: false, foreign_key: true | 
 
 ### Association
-- has_one :favorite
+- has_one :order
+- has_one :address
 - belongs_to :user
 
 
@@ -43,24 +44,24 @@
 
 | Column         | Type    | Options                        |
 | -------------- | ------- | ------------------------------ |
-| postal_cade    | string  | null: false                    |
+| postal_code    | string  | null: false                    |
 | prefecture     | integer | null: false                    |
 | city           | string  | null: false                    |
-| house_number   | integer | null: false                    |
+| house_number   | string  | null: false                    |
 | building_name  | string  |                                |
 | phone_number   | integer | null: false                    |
-| favorite_id    | integer | null: false, foreign_key: true |
+| order_id       | integer | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :favorite
+- belongs_to :order
 
 
-## favorites テーブル
+## orders テーブル
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| user    | references | null: false, foreign_key: true |
-| item    | references | null: false, foreign_key: true |
+| Column   | Type       | Options                        |
+| -------- | ---------- | ------------------------------ |
+| user     | references | null: false, foreign_key: true |
+| item     | references | null: false, foreign_key: true |
 
 ### Association
 - has_one :address

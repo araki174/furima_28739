@@ -6,7 +6,6 @@ class OrdersController < ApplicationController
   end
 
   def new
-    # @order = OrderAddress.new
   end
 
   def create

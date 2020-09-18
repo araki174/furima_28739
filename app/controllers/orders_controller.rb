@@ -2,15 +2,14 @@ class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create]
   before_action :move_to_index
   def index
-   
+   @order = OrderAddress.new
   end
 
   def new
-    @order = OrderAddress.new
+    # @order = OrderAddress.new
   end
 
   def create
-    binding.pry
     @order = OrderAddress.new(order_params)
     if @order.valid?
       pay_item

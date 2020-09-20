@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-  has_one :order
+  has_one :order, dependent: :destroy
   has_one :address
   has_one_attached :image
   # belongs_toはnull falseを持つためvalidates :user_idが不要
